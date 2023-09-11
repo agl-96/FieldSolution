@@ -1,0 +1,43 @@
+﻿@model List<Customer>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Customer</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>CustomerId</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Phone_Number</th>
+            <th>Country_code</th>
+            <th>Gender</th>
+            <th>Balance</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.Id</td>
+                <td>@customer.FirstName</td>
+                <td>@customer.LastName</td>
+                <td><a href="mailto:@customer.Email">@customer.Email</a></td>
+                <td>@customer.Phone_Number</td>
+                <td>@customer.Country_Code</td>
+                <td>@customer.Gender</td>
+                <td>@customer.Balance.ToString("C")</td>
+                <td><a href="@Url.Action("Edit", "Customer", new { id = customer.Id })">Edit</a></td>
+                <td><a href="@Url.Action("Delete", "Customer", new { id = customer.Id })">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create", "Customer")" class="btn btn-primary">Add New Customer</a>
+

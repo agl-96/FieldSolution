@@ -1,0 +1,44 @@
+﻿@model FieldSolution.Models.Customer
+
+@{
+    ViewData["Title"] = "Edit Customer";
+}
+
+<h1>Edit</h1>
+
+@using (Html.BeginForm("Edit", "Customer", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.Id) // Assuming there's an Id field
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FirstName)
+        @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.LastName)
+        @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email)
+        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Phone_Number)
+        @Html.TextBoxFor(model => model.Phone_Number, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Country_Code)
+        @Html.TextBoxFor(model => model.Country_Code, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Gender)
+        @Html.TextBoxFor(model => model.Gender, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Balance)
+        @Html.TextBoxFor(model => model.Balance, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+}
