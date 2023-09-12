@@ -9,15 +9,11 @@ namespace FieldSolution.Controllers
 {
     public class CustomerController : Controller
     {
-        private readonly HttpClient _httpClient;
         private readonly ICustomerService _customerService;
         public CustomerController(ICustomerService customerService )
         {
             _customerService = customerService;
-            _httpClient = new HttpClient()
-            {
-                BaseAddress = new Uri("https://getinvoices.azurewebsites.net/api/")
-            };
+            
         }
         // GET: CustomerController
         public async Task<IActionResult> Index()
@@ -51,7 +47,12 @@ namespace FieldSolution.Controllers
                 {
                     return RedirectToAction("Index");
                 }
-                
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Failed to update the customer. Please check your input and try again.");
+                    return View(customer);
+                }
+
             }
             return View(customer);
         }
@@ -78,6 +79,7 @@ namespace FieldSolution.Controllers
                 }
                 else
                 {
+                    ModelState.AddModelError(string.Empty, "Failed to update the customer. Please check your input and try again.");
                     return View();
                 }
             }

@@ -6,39 +6,94 @@
 
 <h1>Edit</h1>
 
-@using (Html.BeginForm("Edit", "Customer", FormMethod.Post))
+@using (Html.BeginForm("Edit", "Customer", FormMethod.Post, new { autocomplete = "off" }))
 {
     @Html.HiddenFor(model => model.Id) // Assuming there's an Id field
-
+    <div class="form-group">
+        @Html.LabelFor(model => model.Salutation)
+        @Html.TextBoxFor(model => model.Salutation, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Initials)
+        @Html.TextBoxFor(model => model.Initials, new { @class = "form-control" })
+    </div>
     <div class="form-group">
         @Html.LabelFor(model => model.FirstName)
         @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.firstname_ascii)
+        @Html.TextBoxFor(model => model.firstname_ascii, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Gender)
+        @Html.TextBoxFor(model => model.Gender, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.firstname_country_rank)
+        @Html.TextBoxFor(model => model.firstname_country_rank, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.firstname_country_frequency)
+        @Html.TextBoxFor(model => model.firstname_country_frequency, new { @class = "form-control" })
     </div>
     <div class="form-group">
         @Html.LabelFor(model => model.LastName)
         @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
     </div>
     <div class="form-group">
+        @Html.LabelFor(model => model.lastname_ascii)
+        @Html.TextBoxFor(model => model.lastname_ascii, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.lastname_country_rank)
+        @Html.TextBoxFor(model => model.lastname_country_rank, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.lastname_country_frequency)
+        @Html.TextBoxFor(model => model.lastname_country_frequency, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
         @Html.LabelFor(model => model.Email)
         @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Password)
+        @Html.TextBoxFor(model => model.Password, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Country_Code)
+        @Html.TextBoxFor(model => model.Country_Code, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.country_code_alpha)
+        @Html.TextBoxFor(model => model.country_code_alpha, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.country_name)
+        @Html.TextBoxFor(model => model.country_name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.primary_language_code)
+        @Html.TextBoxFor(model => model.primary_language_code, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.primary_language)
+        @Html.TextBoxFor(model => model.primary_language, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Balance)
+        @Html.TextBoxFor(model => model.Balance, new { @class = "form-control" })
     </div>
     <div class="form-group">
         @Html.LabelFor(model => model.Phone_Number)
         @Html.TextBoxFor(model => model.Phone_Number, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.Country_Code)
-        @Html.TextBoxFor(model => model.Country_Code, new { @class = "form-control" })
+        @Html.LabelFor(model => model.Currency)
+        @Html.TextBoxFor(model => model.Currency, new { @class = "form-control" })
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Gender)
-        @Html.TextBoxFor(model => model.Gender, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Balance)
-        @Html.TextBoxFor(model => model.Balance, new { @class = "form-control" })
-    </div>
+    @Html.ValidationSummary()
 
     <button type="submit" class="btn btn-primary">Update</button>
 }
